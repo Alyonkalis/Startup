@@ -34,22 +34,22 @@
 						<a href="#">Home</a>
 					</li>
 					<li class="site-navigation__item">
-						<a href="#">Services</a>
+						<a href="#Services">Services</a>
 					</li>
 					<li class="site-navigation__item">
-						<a href="#">About</a>
+						<a href="#About">About</a>
 					</li>
 					<li class="site-navigation__item">
-						<a href="#">Works</a>
+						<a href="#Works">Works</a>
 					</li>
 					<li class="site-navigation__item">
-						<a href="#">Blog</a>
+						<a href="#Blog">Blog</a>
 					</li>
 					<li class="site-navigation__item">
-						<a href="#">Clients</a>
+						<a href="#Clients">Clients</a>
 					</li>
 					<li class="site-navigation__item">
-						<a href="#">Contact</a>
+						<a href="#Contact">Contact</a>
 					</li>
 				</ul>
 			</nav>
@@ -65,7 +65,7 @@
 
 	<!-- services -->
 
-	<section class="services container">
+	<section id="Services" class="services container">
 		<div class="section-text">
 			<h2 class="section-text__title">Services</h2>
 			<p class="section-text__description">We offer ipsum dolor sit amet, consetetur sadipscing elitr amet</p>
@@ -93,7 +93,7 @@
 
 	<!-- about us -->
 
-	<section class="about-us">
+	<section id="About" class="about-us">
 		<div class="container">
 			<div class="section-text">
 				<h2 class="section-text__title">About us</h2>
@@ -221,7 +221,7 @@
 
 	<!-- latest work -->
 
-	<section class="latest-work container">
+	<section id="Works" class="latest-work container">
 			<div class="section-text">
 				<h2 class="section-text__title">Latest work</h2>
 				<p class="section-text__description">Lorem ipsum dolor sit amet, consetetur sadipscing elitr amet</p>
@@ -276,7 +276,7 @@
 
 	<!--blog posts -->
 
-	<section class="blog-posts">
+	<section id="Blog" class="blog-posts">
 		<div class="container">
 			<div class="section-text">
 				<h2 class="section-text__title">Recent blog posts</h2>
@@ -286,7 +286,10 @@
 
 			<ul class="blog-posts__list">
 				<li class="post wow fadeInRight" data-wow-delay="0.1s">
-					<img src="img/post1.jpg" alt="post" width="460" height="322">
+					<div class="post__image">
+						<img src="img/post1.jpg" alt="post" width="460" height="322">
+					</div>
+					<!-- /.blog-post__image -->
 					<div class="post-text">
 						<div class="post-text__wrapper">
 							
@@ -364,7 +367,7 @@
 
 	<!-- clients -->
 
-	<section class="clients">
+	<section id="Clients" class="clients">
 		<div class="container">
 			<h2 class="visually-hidden">Clients</h2>
 			
@@ -410,7 +413,7 @@
 
 	<!-- Get in touch -->
 	
-	<section class="contact container">
+	<section id="Contact" class="contact container">
 		<div class="section-text">
 			<h2 class="section-text__title">Get in touch</h2>
 			<p class="section-text__description">
@@ -439,18 +442,20 @@
 
 				<li class="contact__item">
 					<h3>Address</h3>
-					<p>
-						shapedtheme@gmail.com <br>khalilkode@gmail.com
- 					</p>
+					<p><a href="mailto:shapedtheme@gmail.com">shapedtheme@gmail.com</a></p>
+ 					<p><a href="mailto:khalilkode@gmail.com">khalilkode@gmail.com</a></p>
 				</li>
 			</ul>
 
 			<form class="contact-form" action="#" method="post">
-				<input type="text" name="name" autocomplete="on" placeholder="Your name" required>
-				<input type="email" name="e-mail" autocomplete="on" placeholder="Your e-mail">
-				<input type="text" name="subject" autocomplete="on" placeholder="Your subject">
-				<input type="text" name="company" autocomplete="on" placeholder="Company name">
-				<textarea name="comment" placeholder="Write your message"></textarea>
+				<div class="contacts-form__flex">
+					<input type="text" name="name" autocomplete="on" placeholder="Your name" required>
+					<input type="email" name="e-mail" autocomplete="on" placeholder="Your e-mail">
+					<input type="text" name="subject" autocomplete="on" placeholder="Your subject">
+					<input type="text" name="company" autocomplete="on" placeholder="Company name">
+					<textarea name="comment" placeholder="Write your message"></textarea>
+					</div>
+				<!-- /.contacts-form__flex -->
 				<button class="contact-form__btn" type="submit" >Send message</button>
 				<button class="contact-form__btn" type="reset">Reset</button>
 				<p class="contact-form__down-text"><span>*</span> We’ll contact you as as possible. We don’t reply on Monday.</p>
