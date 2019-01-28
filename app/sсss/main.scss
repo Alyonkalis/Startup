@@ -70,7 +70,7 @@ img {
 	position: relative;
 	z-index: 0;
 
-	padding-bottom: 260px;
+	min-height: 768px;
 
 	&__wrapper {
 		display: block;
@@ -167,7 +167,10 @@ img {
 }
 
 .title-block {
-	margin-top: 220px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%); 
+	left: 0; right: 0;
 	text-align: center;
 
 	&__title {
@@ -1054,12 +1057,16 @@ img {
 
 @media screen and (max-width:768px) {
 	
+	.main-header {
+		min-height: 600px;
+	}
+
 	.site-navigation {
 		display: none;
 	}
 
-	.menu-button {
-		display: block;
+	.main-header .menu-button { 
+		display: block; 
 	}
 
 	.title-block__title {
@@ -1251,7 +1258,53 @@ img {
 
 @media screen and (max-width:400px) {
 
+	.main-header {
+		min-height: 500px;
+	}
+
+	.title-block {
+		
+		&__title {
+			font-size: 30px;
+		}
+
+		&__description {
+			font-size: 16px;
+		}
+
+	}
+
 	.section-text__description {
 		font-size: 12px;
 	}
+
+	.latest-work__item,
+	.workers__item,
+	.post__image {
+		min-width: 220px;
+	}
+
+	.your-project__title {
+		font-size: 17px;
+	}
+
+	.contact {
+
+		.contact-form {
+
+			input {
+				margin-bottom: 10px;
+			}
+
+			&__button-wrapper {
+				justify-content: space-between;
+			}
+
+			&__btn {
+				margin-right: 0;
+				padding: 17px 32px;
+			}
+		}
+	}
+
 }
