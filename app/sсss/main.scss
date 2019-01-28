@@ -139,7 +139,82 @@ img {
 			background: rgba($mainColor, 0.5);
 		}
 	}
+}
 
+// mobile-menu
+
+.mobile-menu {
+	background-color: $mainColor;
+	width: 250px;
+	padding: 30px;
+	box-sizing: border-box;
+
+	z-index: 10;
+
+	position: fixed;
+	transform: translate(-100%,0);
+	transition: all .5s ease;
+	top: 0;
+	left: 0;
+	
+
+	&__close {
+
+		&::after, &::before {
+			content: "";
+			position: absolute;
+			width: 18px;
+			height: 1px;
+
+			right: 30px;
+
+			background-color: $whiteColor;
+		}
+		
+		&::before {
+			transform: rotate(-45deg);
+		}
+
+		&::after {
+			transform: rotate(45deg);
+		}
+
+		&:hover::before,
+		&:hover::after,
+		&:focus::before,
+		&:focus::after {
+			background-color: rgba($whiteColor, 0.7);
+		}
+
+		&:active::before, &:active::after {
+			background-color: darken($mainColor, 5%);
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__item {
+		
+		padding:10px 0;
+
+		
+		border-bottom: 1px solid darken($mainColor, 5%);
+
+		a {
+			color: $whiteColor;
+
+			&:hover, &:focus {
+				color: rgba($whiteColor, 0.7);
+			}
+
+			&:active {
+				color: darken($mainColor, 5%);
+			}
+		}
+	}
 }
 
 .site-navigation {
@@ -332,13 +407,7 @@ img {
 
 
 		&:hover .workers__info {
-			display: flex;
-			justify-content: center;
-			align-items: flex-end;
-
 			opacity: 1;
-
-			transition: opacity 0.4s ease-out 0.2s;
 		}
 
 	}
@@ -360,6 +429,10 @@ img {
 		background-color: rgba(0, 0, 0, 0.5);
 
 		opacity: 0;
+		transition: opacity 0.4s ease-out 0.2s;
+		display: flex; 
+		justify-content: center; 
+		align-items: flex-end; 
 	}
 
 	&__name {
@@ -420,6 +493,8 @@ img {
 		position: relative;
 
 		width: 32%;
+
+		z-index: -1;
 
 		&:hover .latest-work__info {
 			display: flex;
@@ -1059,20 +1134,52 @@ img {
 	
 	.main-header {
 		min-height: 600px;
+
+		&__main-navigation {
+			justify-content: flex-start;
+		}
+
+		&__logo {
+			margin-left: 10px;
+		}
 	}
 
 	.site-navigation {
 		display: none;
 	}
 
+	.open {
+		transform: translate(0, 0);
+		transition: all .5s ease;
+		overflow-y: auto;
+		z-index: 5; 
+	}
+
+	.menu-bg {
+	    position: fixed;
+	    content: "";
+	    top: 0;
+	    left: 0;
+	    height: 100%;
+	    width: 100%;
+	    background-color: rgba(darken($mainColor, 30%), 0.5);
+	    display: none;
+	    z-index: 4;
+	}
+
 	.main-header .menu-button { 
 		display: block; 
 	}
 
-	.title-block__title {
-		font-size: 36px;
-	}
+	.title-block {
+		width: 90%;
+		margin: 0 auto;
 
+		&__title {
+			font-size: 36px;
+		}
+	}
+		
 	.services,
 	.latest-work,
 	.about-us,
@@ -1224,7 +1331,6 @@ img {
 
 	.latest-work{
 
-
 		&__list {
 			flex-direction: column;
 			align-items: center;
@@ -1263,15 +1369,15 @@ img {
 	}
 
 	.title-block {
+
 		
 		&__title {
-			font-size: 30px;
+			font-size: 28px;
 		}
 
 		&__description {
 			font-size: 16px;
 		}
-
 	}
 
 	.section-text__description {
