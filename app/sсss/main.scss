@@ -19,6 +19,8 @@ body {
 	font-weight: 400;
 	color: $textColor;
 
+	min-width: 320px;
+
 
 	@include reset();
 }
@@ -100,12 +102,16 @@ img {
 	}
 
 	.menu-button {
-		display: block;
+		display: none;
 		width: 50px;
 		height: 50px;
+
 		background-color: transparent;
 		border-radius: 50%;
 		position: relative;
+
+		transition: all 0.3s ease;
+
 
 		span, span::before, span::after {
 			content: '';
@@ -188,6 +194,8 @@ img {
 
 	padding: 18px 35px;
 	border: 1px solid $whiteColor;
+
+	transition: all 0.3s ease;
 	
 	&:hover, &:focus {
 		border: 1px solid darken($mainColor,40%);
@@ -314,8 +322,6 @@ img {
 
 		width: 23%;
 
-		// position: relative;
-
 	}
 
 	&__avatar {
@@ -326,6 +332,10 @@ img {
 			display: flex;
 			justify-content: center;
 			align-items: flex-end;
+
+			opacity: 1;
+
+			transition: opacity 0.4s ease-out 0.2s;
 		}
 
 	}
@@ -346,7 +356,7 @@ img {
 
 		background-color: rgba(0, 0, 0, 0.5);
 
-	  	display: none;
+		opacity: 0;
 	}
 
 	&__name {
@@ -379,6 +389,8 @@ img {
 		font-size: 14px;
 		line-height: 30px;
 
+		transition: all 0.3s ease;
+
 		a {
 			display: block;
 			color: $whiteColor;
@@ -410,6 +422,10 @@ img {
 			display: flex;
 			justify-content: center;
 			align-items: center;
+
+			opacity: 1;
+
+			transition: opacity 0.4s ease-out 0.2s;
 		}
 	}
 
@@ -433,7 +449,7 @@ img {
 		text-align: center;
 		color: $whiteColor;
 
-		display: none;
+		opacity: 0;
 	}
 
 	&__name {
@@ -971,28 +987,6 @@ img {
 		}
 	}
 
-	.post {
-		flex-direction: column;
-
-		&__image {
-			width: 60%;
-			margin-bottom: 25px;
-			margin-right: 0;
-		}
-
-		.post-text {
-			width: 100%;
-
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-
-			&__wrapper {
-
-			}
-		}
-	}
-
 }
 
 
@@ -1059,13 +1053,13 @@ img {
 // -----Medium-----
 
 @media screen and (max-width:768px) {
-
-	.menu-button {
-		display: block;
-	}
 	
 	.site-navigation {
 		display: none;
+	}
+
+	.menu-button {
+		display: block;
 	}
 
 	.title-block__title {
@@ -1109,6 +1103,33 @@ img {
 	.your-project__title {
 		font-size: 26px;
 		line-height: 34px;
+	}
+
+	.blog-posts__list {
+		width: 90%;
+		margin: 0 auto;
+	}
+
+	.post {
+		flex-direction: column;
+
+		&__image {
+			width: 60%;
+			margin-bottom: 25px;
+			margin-right: 0;
+		}
+
+		.post-text {
+			width: 100%;
+
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			&__wrapper {
+
+			}
+		}
 	}
 
 	.clients__list {
@@ -1225,5 +1246,12 @@ img {
 				display: none;
 			}
 		}	
+	}
+}
+
+@media screen and (max-width:400px) {
+
+	.section-text__description {
+		font-size: 12px;
 	}
 }

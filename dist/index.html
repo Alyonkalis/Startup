@@ -52,6 +52,7 @@
 						<a href="#Contact">Contact</a>
 					</li>
 				</ul>
+				<a href="#" class="menu-button"><span></span></a>
 			</nav>
 			<div class="main-header__title-block title-block">
 				<h1 class="title-block__title">Welcome to startup</h1>
@@ -111,7 +112,7 @@
 			<ul class="about-us_list-worker workers">
 				<li class="workers__item wow fadeInUp" data-wow-delay="0.1s">
 					<div class="workers__avatar">
-						<div class="workers__avatar">
+						<div class="workers__avatar-img">
 							<img src="img/Worker1.jpg" alt="Our worker" width="263" height="250">
 						</div>
 						<div class="workers__info">
@@ -139,7 +140,10 @@
 
 				<li class="workers__item wow fadeInUp" data-wow-delay="0.2s"">
 					<div class="workers__avatar">
-						<img class="workers__avatar" src="img/Worker2.jpg" alt="Our worker" width="263" height="250">
+						<div class="workers__avatar-img">
+							<img src="img/Worker2.jpg" alt="Our worker" width="263" height="250">
+						</div>
+						
 						<div class="workers__info">
 							<ul class="social">
 								<li class="social__item">
@@ -156,7 +160,7 @@
 								</li>
 							</ul>
 						</div>
-					<!-- /.worker__social -->
+						<!-- /.worker__social -->
 					</div>
 					<!-- /.workers__avatar -->
 					<p class="workers__name">Rubel Miah</p>
@@ -165,7 +169,10 @@
 
 				<li class="workers__item wow fadeInUp" data-wow-delay="0.3s"">
 					<div class="workers__avatar">
-						<img class="workers__avatar" src="img/Worker3.jpg" alt="Our worker" width="263" height="250">
+						<div class="workers__avatar-img">
+							<img class="workers__avatar-img" src="img/Worker3.jpg" alt="Our worker" width="263" height="250">
+						</div>
+						
 						<div class="workers__info">
 							<ul class="social">
 								<li class="social__item">
@@ -181,8 +188,8 @@
 									<a href="#"><span class="fa fa-linkedin"></span></a>
 								</li>
 							</ul>
+							<!-- /.worker__social -->
 						</div>
-					<!-- /.worker__social -->
 					</div>
 					<!-- /.workers__avatar -->
 					<p class="workers__name">Shamim Mia</p>
@@ -191,7 +198,10 @@
 
 				<li class="workers__item wow fadeInUp" data-wow-delay="0.4s">
 					<div class="workers__avatar">
-						<img class="workers__avatar" src="img/Worker4.jpg" alt="Our worker" width="263" height="250">
+						<div class="workers__avatar-img">
+							<img class="workers__avatar" src="img/Worker4.jpg" alt="Our worker" width="263" height="250">
+						</div>
+						
 						<div class="workers__info">
 							<ul class="social">
 								<li class="social__item">
@@ -207,8 +217,8 @@
 									<a href="#"><span class="fa fa-linkedin"></span></a>
 								</li>
 							</ul>
+							<!-- /.worker__social -->
 						</div>
-					<!-- /.worker__social -->
 					</div>
 					<!-- /.workers__avatar -->
 					<p class="workers__name">John Doe</p>
@@ -237,9 +247,12 @@
 					</div>
 					<!-- /.latest-work__img -->
 					<div class="latest-work__info">
-						<h3 class="latest-work__name">Hair Dresser</h3>
-						<p class="latest-work__brand">Branding</p>
-						<a href="#" class="latest-work__btn btn">View</a>
+						<div class="latest-work__wrapper">
+							<h3 class="latest-work__name">Hair Dresser</h3>
+							<p class="latest-work__brand">Branding</p>
+							<a href="#" class="latest-work__btn btn">View</a>
+						</div>
+						<!-- /.latest-work__wrapper -->
 					</div>
 				</li>
 
@@ -249,9 +262,11 @@
 					</div>
 					<!-- /.latest-work__img -->
 					<div class="latest-work__info">
-						<h3 class="latest-work__name">Hair Dresser</h3>
-						<p class="latest-work__brand">Branding</p>
-						<a href="#" class="latest-work__btn btn">View</a>
+						<div class="latest-work__wrapper">
+							<h3 class="latest-work__name">Hair Dresser</h3>
+							<p class="latest-work__brand">Branding</p>
+							<a href="#" class="latest-work__btn btn">View</a>
+						</div>
 					</div>
 				</li>
 
@@ -261,9 +276,11 @@
 					</div>
 					<!-- /.latest-work__img -->
 					<div class="latest-work__info">
-						<h3 class="latest-work__name">Hair Dresser</h3>
-						<p class="latest-work__brand">Branding</p>
-						<a href="#" class="latest-work__btn btn">View</a>
+						<div class="latest-work__wrapper">
+							<h3 class="latest-work__name">Hair Dresser</h3>
+							<p class="latest-work__brand">Branding</p>
+							<a href="#" class="latest-work__btn btn">View</a>
+						</div>
 					</div>
 				</li>
 			</ul>
@@ -450,7 +467,7 @@
 				<li class="contact__item">
 					<h3>Hotline (24x7)</h3>
 					<p>
-						+65 0052 300, +65 88251 210 <br>+88 01723 511 340
+						+65 0052 300, +65 88251 210<span>,</span> <br>+88 01723 511 340
  					</p>
 				</li>
 
@@ -470,8 +487,10 @@
 					<textarea name="comment" placeholder="Write your message"></textarea>
 					</div>
 				<!-- /.contacts-form__flex -->
-				<button class="contact-form__btn" type="submit" >Send message</button>
-				<button class="contact-form__btn" type="reset">Reset</button>
+				<div class="contact-form__button-wrapper">
+					<button class="contact-form__btn" type="submit" >Send message</button>
+					<button class="contact-form__btn" type="reset">Reset</button>
+				</div>
 				<p class="contact-form__down-text"><span>*</span> We’ll contact you as as possible. We don’t reply on Monday.</p>
 			</form>
 		</div>
