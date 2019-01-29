@@ -41,7 +41,7 @@ img {
   overflow: hidden; }
 
 /*header*/
-.main-header {
+.header {
   color: #fff;
   background-image: url(../img/bg-main-header.jpg);
   background-size: cover;
@@ -51,7 +51,7 @@ img {
   position: relative;
   z-index: 1;
   min-height: 768px; }
-  .main-header__wrapper {
+  .header__wrapper {
     display: block;
     position: absolute;
     left: 0;
@@ -62,16 +62,16 @@ img {
     height: 100%;
     z-index: -1;
     background-color: rgba(0, 0, 0, 0.45); }
-  .main-header__main-navigation {
+  .header__navigation {
     display: flex;
     padding-top: 40px;
     align-items: center;
     justify-content: space-between; }
-  .main-header__logo {
+  .header__logo {
     font-size: 24px;
     font-weight: 700;
     color: #fff; }
-  .main-header .menu-button {
+  .header .menu-button {
     display: none;
     width: 50px;
     height: 50px;
@@ -79,7 +79,7 @@ img {
     border-radius: 50%;
     position: relative;
     transition: all 0.3s ease; }
-    .main-header .menu-button span, .main-header .menu-button span::before, .main-header .menu-button span::after {
+    .header .menu-button span, .header .menu-button span::before, .header .menu-button span::after {
       content: '';
       display: block;
       transition: 0.2s;
@@ -91,13 +91,13 @@ img {
       width: 20px;
       height: 2px;
       background-color: white; }
-    .main-header .menu-button span::before {
+    .header .menu-button span::before {
       -webkit-transform: translateY(-5px);
               transform: translateY(-5px); }
-    .main-header .menu-button span::after {
+    .header .menu-button span::after {
       -webkit-transform: translateY(5px);
               transform: translateY(5px); }
-    .main-header .menu-button:hover {
+    .header .menu-button:hover {
       background: rgba(192, 48, 28, 0.5); }
 
 .mobile-menu {
@@ -202,28 +202,28 @@ img {
 .services {
   padding: 95px 0; }
 
-.section-text {
+.hgroup {
   text-align: center;
   margin-bottom: 65px; }
-  .section-text__title {
+  .hgroup__title {
     font-size: 20px;
     text-transform: uppercase;
     margin: 0; }
-    .section-text__title:after {
+    .hgroup__title:after {
       content: "";
       display: block;
       margin: 25px auto;
       height: 2px;
       width: 50px;
       background-color: #555555; }
-  .section-text__descruption {
+  .hgroup__descruption {
     margin: 0; }
 
 .services-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around; }
-  .services-list__item {
+  .services-list .services-item {
     font-size: 14px;
     text-align: center;
     width: 31%; }
@@ -250,16 +250,16 @@ img {
       color: white; }
 
 /*about us*/
-.about-us {
+.about {
   background-color: #f8f8f8;
   padding: 65px 0; }
-  .about-us__description-block {
+  .about__descriptions {
     display: flex;
     justify-content: space-around;
     font-size: 14px;
     line-height: 24px;
     margin-bottom: 65px; }
-    .about-us__description-block p {
+    .about__descriptions p {
       width: 48%;
       margin: 0; }
 
@@ -319,25 +319,21 @@ img {
       background-color: #c0301c; }
 
 /*latest works*/
-.latest-work {
+.works {
   padding: 65px 0; }
-  .latest-work__list {
+  .works__list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between; }
-  .latest-work__item {
+  .works__item {
     position: relative;
     width: 32%;
-    z-index: -1; }
-    .latest-work__item:hover .latest-work__info {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 1;
-      transition: opacity 0.4s ease-out 0.2s; }
-  .latest-work__img img {
+    z-index: 1; }
+    .works__item:hover .works__info {
+      opacity: 1; }
+  .works__img img {
     display: block; }
-  .latest-work__info {
+  .works__info {
     position: absolute;
     left: 0;
     top: 0;
@@ -349,26 +345,30 @@ img {
     background-color: rgba(192, 48, 28, 0.7);
     text-align: center;
     color: white;
-    opacity: 0; }
-  .latest-work__name {
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.4s ease-out 0.2s; }
+  .works__name {
     font-size: 18px;
     font-weight: 400;
     margin: 0;
     margin-bottom: 5px; }
-  .latest-work__brand {
+  .works__brand {
     font-size: 12px;
     margin: 0;
     margin-bottom: 20px; }
-  .latest-work__btn {
+  .works__btn {
     color: #c0301c;
     background-color: white;
     border: none; }
-    .latest-work__btn:hover, .latest-work__btn:focus {
+    .works__btn:hover, .works__btn:focus {
       outline: 1px solid white;
       background: transparent;
       border: none;
       color: white; }
-    .latest-work__btn:active {
+    .works__btn:active {
       border: none;
       background-color: rgba(103, 26, 15, 0.5);
       outline: none;
@@ -400,7 +400,7 @@ img {
     line-height: 44px; }
 
 /*blog posts*/
-.blog-posts {
+.blog {
   padding: 65px 0; }
 
 .post {
@@ -647,29 +647,29 @@ img {
       color: #c0301c; }
 
 /*footer*/
-.main-footer {
+.footer {
   background-color: #c0301c;
   padding: 65px 0;
   margin-top: -4px; }
-  .main-footer__copyright {
+  .footer__copyright {
     font-size: 12px;
     color: rgba(255, 255, 255, 0.3);
     text-align: center; }
-  .main-footer__footer-menu {
+  .footer__footer-menu {
     margin-bottom: 15px; }
-  .main-footer .footer-menu {
+  .footer .footer-menu {
     text-align: center;
     font-size: 14px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center; }
-    .main-footer .footer-menu__item {
+    .footer .footer-menu__item {
       margin: 0 15px; }
-      .main-footer .footer-menu__item a {
+      .footer .footer-menu__item a {
         color: rgba(255, 255, 255, 0.3); }
-        .main-footer .footer-menu__item a:hover, .main-footer .footer-menu__item a:focus {
+        .footer .footer-menu__item a:hover, .footer .footer-menu__item a:focus {
           color: white; }
-        .main-footer .footer-menu__item a:active {
+        .footer .footer-menu__item a:active {
           color: #932516; }
 
 @media screen and (max-width: 1170px) {
@@ -680,10 +680,10 @@ img {
   .services-list {
     flex-direction: column;
     align-items: center; }
-    .services-list__item {
+    .services-list .services-item {
       width: 80%;
       margin-bottom: 40px; }
-      .services-list__item:last-child {
+      .services-list .services-item:last-child {
         margin-bottom: 0; } }
 
 @media screen and (max-width: 930px) {
@@ -712,11 +712,11 @@ img {
     width: 100%; } }
 
 @media screen and (max-width: 768px) {
-  .main-header {
+  .header {
     min-height: 600px; }
-    .main-header__main-navigation {
+    .header__navigation {
       justify-content: flex-start; }
-    .main-header__logo {
+    .header__logo {
       margin-left: 10px; }
   .site-navigation {
     display: none; }
@@ -738,7 +738,7 @@ img {
     z-index: 4; }
   .show {
     display: block; }
-  .main-header .menu-button {
+  .header .menu-button {
     display: block; }
   .title-block {
     width: 90%;
@@ -746,31 +746,31 @@ img {
     .title-block__title {
       font-size: 36px; }
   .services,
-  .latest-work,
-  .about-us,
+  .works,
+  .about,
   .your-project,
-  .blog-posts,
+  .blog,
   .clients,
   .contact,
-  .main-footer {
+  .footer {
     padding: 45px 0; }
-  .section-text {
+  .hgroup {
     margin-bottom: 35px; }
-  .services-list__item {
+  .services-list .services-item {
     margin-bottom: 25px;
     width: 100%; }
-  .about-us__description-block {
+  .about__descriptions {
     margin-bottom: 35px;
     flex-direction: column; }
-    .about-us__description-block p {
+    .about__descriptions p {
       width: 100%;
       margin-bottom: 25px; }
-      .about-us__description-block p:last-child {
+      .about__descriptions p:last-child {
         margin-bottom: 0; }
   .your-project__title {
     font-size: 26px;
     line-height: 34px; }
-  .blog-posts__list {
+  .blog__list {
     width: 90%;
     margin: 0 auto; }
   .post {
@@ -822,10 +822,10 @@ img {
     align-items: center; }
     .workers__item {
       width: 60%; }
-  .latest-work__list {
+  .works__list {
     flex-direction: column;
     align-items: center; }
-  .latest-work__item {
+  .works__item {
     width: 60%;
     margin-bottom: 25px; }
   .your-project__title {
@@ -837,15 +837,15 @@ img {
     display: none; } }
 
 @media screen and (max-width: 400px) {
-  .main-header {
+  .header {
     min-height: 500px; }
   .title-block__title {
     font-size: 28px; }
   .title-block__description {
     font-size: 16px; }
-  .section-text__description {
+  .hgroup__description {
     font-size: 12px; }
-  .latest-work__item,
+  .works__item,
   .workers__item,
   .post__image {
     min-width: 220px; }
