@@ -21,7 +21,7 @@ body {
 
 	min-width: 320px;
 
-	.overflow {
+	&.overflow {
 		overflow: hidden;               //overflow:hidden добавляем для того, чтобы не работал скролл у сайта, когда открыто меню
 	}
 

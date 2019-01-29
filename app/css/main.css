@@ -10,6 +10,8 @@ body {
   margin: 0;
   padding: 0;
   list-style: none; }
+  body.overflow {
+    overflow: hidden; }
 
 a {
   text-decoration: none; }

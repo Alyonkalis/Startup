@@ -14,6 +14,10 @@
 	<!-- style -->
 	<link rel="stylesheet" href="css/main.min.css">
 
+	<!-- slick style -->
+	<link rel="stylesheet" type="text/css" href="css/slick.css"/>
+  	<link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>
+
 	<!-- анимация -->
 	<link rel="stylesheet" href="css/animate.min.css">
 </head>
@@ -433,33 +437,103 @@
 		<div class="container">
 			<h2 class="visually-hidden">Clients</h2>
 			
-			<ul class="clients__list">
-				<li class="clients__item">
-					<img src="img/client1.png" alt="Client" width="141" height="27">
-				</li>
-				<li class="clients__item">
-					<img src="img/client2.png" alt="Client" width="121" height="49">
-				</li>
-				<li class="clients__item">
-					<img src="img/client3.png" alt="Client" width="142" height="17">
-				</li>
-				<li class="clients__item">
-					<img src="img/client4.png" alt="Client" width="109" height="21">
-				</li>
-				<li class="clients__item">
-					<img src="img/client5.png" alt="Client" width="123" height="46">
-				</li>
-			</ul>
-			
-			<div class="clients__text">
-				<p class="clients__quote">
-					<em>Hvaing placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum”</em>
-				</p>
-				<p class="clients__name">
-					John Doe, Google Inc.
-				</p>
+			<div class="slides">
+				<div class="slide">
+					<ul class="clients__list">
+						<li class="clients__item">
+							<img src="img/client1.png" alt="Client" width="141" height="27">
+						</li>
+						<li class="clients__item">
+							<img src="img/client2.png" alt="Client" width="121" height="49">
+						</li>
+						<li class="clients__item">
+							<img src="img/client3.png" alt="Client" width="142" height="17">
+						</li>
+						<li class="clients__item">
+							<img src="img/client4.png" alt="Client" width="109" height="21">
+						</li>
+						<li class="clients__item">
+							<img src="img/client5.png" alt="Client" width="123" height="46">
+						</li>
+					</ul>
+					
+					<div class="clients__text">
+						<p class="clients__quote">
+							<em>Hvaing placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum”</em>
+						</p>
+						<p class="clients__name">
+							John Doe, Google Inc.
+						</p>
+					</div>
+					<!-- /.clients__text -->
+				</div>
+				<!-- /.slide -->
+
+				<div class="slide">
+					<ul class="clients__list">
+						<li class="clients__item">
+							<img src="img/client1.png" alt="Client" width="141" height="27">
+						</li>
+						<li class="clients__item">
+							<img src="img/client2.png" alt="Client" width="121" height="49">
+						</li>
+						<li class="clients__item">
+							<img src="img/client3.png" alt="Client" width="142" height="17">
+						</li>
+						<li class="clients__item">
+							<img src="img/client4.png" alt="Client" width="109" height="21">
+						</li>
+						<li class="clients__item">
+							<img src="img/client5.png" alt="Client" width="123" height="46">
+						</li>
+					</ul>
+					
+					<div class="clients__text">
+						<p class="clients__quote">
+							<em>Hvaing placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum”</em>
+						</p>
+						<p class="clients__name">
+							John Doe, Google Inc.
+						</p>
+					</div>
+					<!-- /.clients__text -->
+				</div>
+				<!-- /.slide -->
+
+
+				<div class="slide">
+					<ul class="clients__list">
+						<li class="clients__item">
+							<img src="img/client1.png" alt="Client" width="141" height="27">
+						</li>
+						<li class="clients__item">
+							<img src="img/client2.png" alt="Client" width="121" height="49">
+						</li>
+						<li class="clients__item">
+							<img src="img/client3.png" alt="Client" width="142" height="17">
+						</li>
+						<li class="clients__item">
+							<img src="img/client4.png" alt="Client" width="109" height="21">
+						</li>
+						<li class="clients__item">
+							<img src="img/client5.png" alt="Client" width="123" height="46">
+						</li>
+					</ul>
+					
+					<div class="clients__text">
+						<p class="clients__quote">
+							<em>Hvaing placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum”</em>
+						</p>
+						<p class="clients__name">
+							John Doe, Google Inc.
+						</p>
+					</div>
+					<!-- /.clients__text -->
+				</div>
+				<!-- /.slide -->
 			</div>
-			<!-- /.clients__text -->
+			<!-- /.slides -->
+
 			
 			<ul class="clients__nav clients-nav">
 				<li class="clients-nav__item clients-nav--first"></li>
@@ -553,6 +627,16 @@
 	<!-- /.main-footer -->
 	
 	<script src="js/main.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  	<script type="text/javascript" src="js/slick.js"></script>
+	<script type="text/javascript">
+	    $(document).ready(function(){
+	      $('.slides').slick({
+	        setting-name: setting-value
+	      });
+	    });
+	</script>
 	<script src="js/wow.min.js"></script>
 	<script>
 		wow = new WOW( {
