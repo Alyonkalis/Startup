@@ -21,6 +21,10 @@ body {
 
 	min-width: 320px;
 
+	.overflow {
+		overflow: hidden;               //overflow:hidden добавляем для того, чтобы не работал скролл у сайта, когда открыто меню
+	}
+
 
 	@include reset();
 }
@@ -68,7 +72,7 @@ img {
 	background-color: $mainColor;
 
 	position: relative;
-	z-index: 0;
+	z-index: 1;
 
 	min-height: 768px;
 
@@ -159,14 +163,20 @@ img {
 	
 
 	&__close {
+		position: absolute;
+
+		width: 18px;
+		height: 18px;
+		right: 30px;
+		top: 20px;
 
 		&::after, &::before {
 			content: "";
 			position: absolute;
 			width: 18px;
 			height: 1px;
-
-			right: 30px;
+			top: 8px;
+			left: 0;
 
 			background-color: $whiteColor;
 		}
@@ -1165,6 +1175,10 @@ img {
 	    background-color: rgba(darken($mainColor, 30%), 0.5);
 	    display: none;
 	    z-index: 4;
+	}
+
+	.show {
+		display: block;
 	}
 
 	.main-header .menu-button { 
