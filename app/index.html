@@ -65,25 +65,25 @@
 				     
 				    <ul class="mobile-menu__list">
 					     <li class="mobile-menu__item">
-							<a href="#">Home</a>
+							<span name="Home">Home </span>
 						</li>
 						<li class="mobile-menu__item">
-							<a href="#Services">Services</a>
+							<span name="Services">Services</span>
 						</li>
 						<li class="mobile-menu__item">
-							<a href="#About">About</a>
+							<span name="About">About</span>
 						</li>
 						<li class="mobile-menu__item">
-							<a href="#Works">Works</a>
+							<span name="Works">Works</span>
 						</li>
 						<li class="mobile-menu__item">
-							<a href="#Blog">Blog</a>
+							<span name="Blog">Blog</span>
 						</li>
 						<li class="mobile-menu__item">
-							<a href="#Clients">Clients</a>
+							<span name="Clients">Clients</span>
 						</li>
 						<li class="mobile-menu__item">
-							<a href="#Contact">Contact</a>
+							<span name="Contact">Contact</span>
 						</li>
 				    </ul>
 				</div>
@@ -534,14 +534,12 @@
 			</div>
 			<!-- /.slides -->
 
-			
 			<ul class="clients-nav">
 				<li class="clients-nav__item"></li>
 				<li class="clients-nav__item"></li>
 				<li class="clients-nav__item"></li>
 			</ul>
 			<!-- /.clients__nav -->
-			
 		</div>
 		<!-- /.container -->
 	</section>
@@ -631,11 +629,13 @@
 	<script type="text/javascript" src="https://github.com/jquery/jquery-migrate"></script>
   	<script type="text/javascript" src="js/slick.js"></script>
 	<script type="text/javascript">
-	    $(document).ready(function(){
-	      $('.slides').slick({
-	        setting-name: setting-value
-	      });
-	    });
+	    $('.slides').slick({
+		  	dots: true,
+			infinite: true,
+			speed: 300,
+			slidesToShow: 1,
+			adaptiveHeight: true
+			});	
 	</script>
 	<script src="js/wow.min.js"></script>
 	<script>

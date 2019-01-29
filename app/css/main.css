@@ -49,7 +49,7 @@ img {
   background-position: center top;
   background-color: #c0301c;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   min-height: 768px; }
   .header__wrapper {
     display: block;
@@ -142,11 +142,12 @@ img {
   .mobile-menu__item {
     padding: 10px 0;
     border-bottom: 1px solid #aa2a19; }
-    .mobile-menu__item a {
-      color: white; }
-      .mobile-menu__item a:hover, .mobile-menu__item a:focus {
+    .mobile-menu__item span {
+      color: white;
+      cursor: pointer; }
+      .mobile-menu__item span:hover, .mobile-menu__item span:focus {
         color: rgba(255, 255, 255, 0.7); }
-      .mobile-menu__item a:active {
+      .mobile-menu__item span:active {
         color: #aa2a19; }
 
 .site-navigation {

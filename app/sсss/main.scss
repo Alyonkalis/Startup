@@ -22,9 +22,8 @@ body {
 	min-width: 320px;
 
 	&.overflow {
-		overflow: hidden;               //overflow:hidden добавляем для того, чтобы не работал скролл у сайта, когда открыто меню
+		overflow: hidden; //overflow:hidden добавляем для того, чтобы не работал скролл у сайта, когда открыто меню
 	}
-
 
 	@include reset();
 }
@@ -72,7 +71,7 @@ img {
 	background-color: $mainColor;
 
 	position: relative;
-	z-index: 1;
+	z-index: 2;
 
 	min-height: 768px;
 
@@ -160,7 +159,6 @@ img {
 	transition: all .5s ease;
 	top: 0;
 	left: 0;
-	
 
 	&__close {
 		position: absolute;
@@ -207,14 +205,13 @@ img {
 	}
 
 	&__item {
-		
 		padding:10px 0;
 
-		
 		border-bottom: 1px solid darken($mainColor, 5%);
 
-		a {
+		span {
 			color: $whiteColor;
+			cursor: pointer;
 
 			&:hover, &:focus {
 				color: rgba($whiteColor, 0.7);
@@ -1342,7 +1339,6 @@ img {
 		&__item {
 			width: 60%;
 		}
-
 	}
 
 	.works{

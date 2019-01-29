@@ -29,6 +29,20 @@ closeMenu.addEventListener("click", function(){                //слушаем 
 });
 
 
+// Мы находим все спаны, при клике на один из них берем его атрибут
+// делаем прокрутку к блоку с соответствующим id,
+//  затем убираем все добавленные ранее классы
+var menuLink = document.querySelectorAll('.mobile-menu__item span'); 
+
+menuLink.forEach(function(item) { 
+    item.addEventListener("click", function(){ 
+        var name = item.getAttribute('name'); 
+        document.getElementById(name).scrollIntoView(); 
+        menu.classList.remove('open'); 
+        body.classList.remove('overflow'); 
+        menuBg.classList.remove('show'); 
+    }) 
+});
 
 
 
