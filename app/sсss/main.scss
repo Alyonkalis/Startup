@@ -581,6 +581,7 @@ img {
 		color: $mainColor;
 
 		background-color: $whiteColor;
+		transition: all 0.3s ease;
 
 		border:none;
 		
@@ -1391,6 +1392,7 @@ img {
 	}
 
 	.clients {
+		overflow-x: hidden;
 
 		&__item {
 

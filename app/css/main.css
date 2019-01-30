@@ -379,6 +379,7 @@ img {
   .works__btn {
     color: #c0301c;
     background-color: white;
+    transition: all 0.3s ease;
     border: none; }
     .works__btn:hover, .works__btn:focus {
       outline: 1px solid white;
@@ -849,10 +850,12 @@ img {
   .your-project__title {
     font-size: 22px;
     line-height: 30px; }
-  .clients__item:nth-child(2n) {
-    margin-right: 0px; }
-  .clients__item:last-child {
-    display: none; } }
+  .clients {
+    overflow-x: hidden; }
+    .clients__item:nth-child(2n) {
+      margin-right: 0px; }
+    .clients__item:last-child {
+      display: none; } }
 
 @media screen and (max-width: 400px) {
   .header {
