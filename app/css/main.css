@@ -1,17 +1,33 @@
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: url("../fonts/Montserrat-Regular.eot");
+  src: url("../fonts/Montserrat-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Montserrat-Regular.svg#Montserrat-Regular") format("svg"), url("../fonts/Montserrat-Regular.woff") format("woff"), url("../fonts/Montserrat-Regular.woff2") format("woff2"), url("../fonts/Montserrat-Regular.woff2") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Montserrat-Bold';
+  src: url("../fonts/Montserrat-Bold.eot");
+  src: url("../fonts/Montserrat-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Montserrat-Bold.svg#Montserrat-Bold") format("svg"), url("../fonts/Montserrat-Bold.woff") format("woff"), url("../fonts/Montserrat-Bold.woff2") format("woff2"), url("../fonts/Montserrat-Bold.woff2") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
 html {
   scroll-behavior: smooth; }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat-Regular', Arial, sans-serif;
   font-size: 16px;
-  font-weight: 400;
   color: #555555;
   min-width: 320px;
   margin: 0;
   padding: 0;
   list-style: none; }
   body.overflow {
-    overflow: hidden; }
+    overflow: hidden;
+    position: fixed;
+    height: 100%;
+    width: 100%; }
 
 a {
   text-decoration: none; }
@@ -68,8 +84,8 @@ img {
     align-items: center;
     justify-content: space-between; }
   .header__logo {
+    font-family: 'Montserrat-Bold';
     font-size: 24px;
-    font-weight: 700;
     color: #fff; }
   .header .menu-button {
     display: none;
@@ -173,6 +189,7 @@ img {
   right: 0;
   text-align: center; }
   .title-block__title {
+    font-family: 'Montserrat-Bold';
     font-size: 48px;
     margin: 0;
     margin-bottom: 5px;
@@ -293,8 +310,8 @@ img {
     justify-content: center;
     align-items: flex-end; }
   .workers__name {
+    font-family: 'Montserrat-Bold';
     font-size: 14px;
-    font-weight: 700;
     text-transform: uppercase;
     margin: 0;
     margin-top: 10px; }
@@ -353,7 +370,6 @@ img {
     transition: opacity 0.4s ease-out 0.2s; }
   .works__name {
     font-size: 18px;
-    font-weight: 400;
     margin: 0;
     margin-bottom: 5px; }
   .works__brand {
@@ -461,8 +477,8 @@ img {
     font-size: 14px;
     line-height: 24px; }
   .post-text__btn {
+    font-family: 'Montserrat-Bold';
     font-size: 13px;
-    font-weight: 700;
     text-transform: uppercase;
     color: #555555; }
     .post-text__btn:hover, .post-text__btn:focus {
@@ -481,7 +497,7 @@ img {
     justify-content: center;
     margin-bottom: 50px; }
   .clients__item {
-    margin-right: 50px; }
+    margin-right: 60px; }
     .clients__item:last-child {
       margin-right: 0; }
     .clients__item:hover, .clients__item:focus {
@@ -495,19 +511,21 @@ img {
   .clients__name {
     font-size: 18px; }
 
-.clients-nav {
-  display: flex;
-  justify-content: center; }
-  .clients-nav__item {
-    width: 13px;
-    height: 13px;
-    margin-right: 7px;
+.slick-next::before,
+.slick-prev::before {
+  display: none; }
+
+.slick-dots {
+  bottom: -44px !important; }
+  .slick-dots li {
+    width: 13px !important;
+    height: 13px !important;
+    margin: 0 3px !important;
     border-radius: 50%;
-    background-color: #d5d5d5;
-    cursor: pointer; }
-    .clients-nav__item:last-child {
-      margin-right: 0; }
-    .clients-nav__item:active {
+    background-color: #d5d5d5; }
+    .slick-dots li button:before {
+      color: transparent !important; }
+    .slick-dots li.slick-active {
       background-color: #c0301c; }
 
 /*Get in touch*/
@@ -751,7 +769,6 @@ img {
   .about,
   .your-project,
   .blog,
-  .clients,
   .contact,
   .footer {
     padding: 45px 0; }
@@ -852,6 +869,11 @@ img {
     min-width: 220px; }
   .your-project__title {
     font-size: 17px; }
+  .clients__list {
+    flex-direction: column; }
+  .clients__item {
+    margin-right: 0;
+    margin-bottom: 20px; }
   .contact .contact-form input {
     margin-bottom: 10px; }
   .contact .contact-form__button-wrapper {
