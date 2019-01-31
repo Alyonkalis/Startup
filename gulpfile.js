@@ -6,13 +6,8 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     prefixer = require('gulp-autoprefixer'),
     sourcemaps = require('gulp-sourcemaps'),
-    concat = require('gulp-concat'),
     imagemin = require('gulp-imagemin'),
-    pngquant = require('imagemin-pngquant'),
-    spritesmith = require('gulp.spritesmith'),
-    gutil = require ('gulp-util');
-
-
+    include = require('gulp-file-include');
 
 gulp.task('html', function () {
     return gulp.src('app/*.html') //Выберем файлы по нужному пути
@@ -20,90 +15,61 @@ gulp.task('html', function () {
     .pipe(browserSync.reload({stream: true})) //И перезагрузим наш сервер для обновлений
 });
 
-gulp.task('sсss', function() {
-    return gulp.src('app/sсss/**/*.scss') //Выберем наш main.scss
+gulp.task('sass', function() {
+    return gulp.src('app/sсss/**/*') //Выберем наш main.scss
     .pipe(sourcemaps.init()) //То же самое что и с js
     .pipe(sass())  //Скомпилируем
-    .pipe(prefixer()) //Добавим вендорные префиксы
-    .pipe(gulp.dest('app/css')) // выгружаем
+    .pipe(prefixer(['last 15 versions', '>1%', 'ie 8', 'ie 7'], { cascade: true }))
     .pipe(cleanCSS()) //сжатие
     .pipe(sourcemaps.write())
-    .pipe(rename({suffix: '.min'})) //переименовываем .min 
-    .pipe(gulp.dest('app/css')) // выгружаем
+    .pipe(gulp.dest('dist/css')) // выгружаем
+    .pipe(rename({
+        extname: '.min.css'
+    }))//переименовываем .min 
     .pipe(gulp.dest('dist/css')) // выгружаем
     .pipe(browserSync.reload({stream: true})) //И перезагрузим сервер
 });
 
-gulp.task('otherCss', function() {
-    return gulp.src('app/css/**/*.min.css') //Выберем наш main.scss
-    .pipe(gulp.dest('dist/css')) // выгружаем
-    .pipe(browserSync.reload({stream: true})) //И перезагрузим сервер
-});
-
-
-
-gulp.task('uglify', function() {
-    return gulp.src('app/js/**/*.js')
-    .pipe(sourcemaps.init()) //Инициализируем sourcemap
-    .pipe(uglify()) //Сожмем наш js
-    .pipe(sourcemaps.write()) //Пропишем карты
+gulp.task('js', function() {
+    return gulp.src('app/js/*.js')
+    .pipe(include({
+        prefix: '@@',
+        basepath: '@file'
+    }))
     .pipe(gulp.dest('dist/js'))
-    .pipe(browserSync.reload({stream: true})) //И перезагрузим сервер
+    .pipe(uglify()) //Сожмем наш js
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('image', function() {
-    return gulp.src('app/img/*')
-    .pipe(imagemin({ 
-        optimizationLevel: 3,
+gulp.task('image', () =>
+    gulp.src('app/img/*')
+    .pipe(imagemin({
+        interlaced: true,
         progressive: true,
-        svgoPlugins: [{removeViewBox: false}],
-        use: [pngquant()],
-        interlaced: true}))
+         optimizationLevel: 5
+    }))
     .pipe(gulp.dest('dist/img'))
-}
 );
-
-// gulp.task('image', function() {
-//     return gulp.src('app/img/**/*.{png,jpg,svg}')
-//     .pipe(imagemin({ 
-//         imagemin.optipng({optimizationLevel: 3}),
-//         imagemin.jpegtran({progressive: true}),
-//         imagemin.svgo()
-//     .pipe(gulp.dest('dist/img'))
-// }
-// );
-
-
-// gulp.task('sprite', function() {
-//     var spriteData = 
-//         gulp.src('app/img/sprite/*.*') // путь, откуда берем картинки для спрайта
-//             .pipe(spritesmith({
-//                 imgName: 'sprite.png',
-//                 cssName: 'sprite.css',
-//             }));
-
-//     spriteData.img.pipe(gulp.dest('dist/img/sprite')); // путь, куда сохраняем картинку
-//     spriteData.css.pipe(gulp.dest('dist/img/sprite')); // путь, куда сохраняем стили
-// });
-
 
 gulp.task('fonts', function() {
     return gulp.src('app/fonts')
     .pipe(gulp.dest('dist'))
 });
 
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', function(){
     browserSync({
         server: {
-            baseDir: 'app'
-        }
+            baseDir: 'dist'
+        },
+        notify: false
     });
 });
 
 gulp.task('watch', function() {
-    gulp.watch('app/sсss/**/*.scss', gulp.series('sсss'));
+    gulp.watch('app/sсss/**/*.scss', gulp.series('sass'));
     gulp.watch('app/*.html').on('change', browserSync.reload);
     gulp.watch('app/js/**/*.js', browserSync.reload); //не проверено работает или нет
 });
 
-gulp.task('default', gulp.parallel('image',  'html', 'sсss', 'otherCss', 'uglify', 'fonts', 'browser-sync', 'watch'))
+gulp.task('default', gulp.parallel('image', 'fonts' , 'html', 'sass', 'browser-sync', 'watch', 'js')) 
