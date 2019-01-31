@@ -16,7 +16,7 @@ gulp.task('html', function () {
 });
 
 gulp.task('sass', function() {
-    return gulp.src('app/sсss/**/*') //Выберем наш main.scss
+    return gulp.src('app/sсss/**/*.scss') //Выберем наш main.scss
     .pipe(sourcemaps.init()) //То же самое что и с js
     .pipe(sass())  //Скомпилируем
     .pipe(prefixer(['last 15 versions', '>1%', 'ie 8', 'ie 7'], { cascade: true }))
@@ -53,8 +53,8 @@ gulp.task('image', () =>
 );
 
 gulp.task('fonts', function() {
-    return gulp.src('app/fonts')
-    .pipe(gulp.dest('dist'))
+    return gulp.src('app/fonts/*')
+    .pipe(gulp.dest('dist/fonts'));
 });
 
 gulp.task('browser-sync', function(){
@@ -67,7 +67,7 @@ gulp.task('browser-sync', function(){
 });
 
 gulp.task('watch', function() {
-    gulp.watch('app/sсss/**/*.scss', gulp.series('sass'));
+    gulp.watch('app/sсss/**/*', gulp.series('sass'));
     gulp.watch('app/*.html').on('change', browserSync.reload);
     gulp.watch('app/js/**/*.js', browserSync.reload); //не проверено работает или нет
 });
