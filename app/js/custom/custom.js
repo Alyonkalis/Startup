@@ -28,7 +28,6 @@ closeMenu.addEventListener("click", function(){                //слушаем 
     }
 });
 
-
 // Мы находим все спаны, при клике на один из них берем его атрибут
 // делаем прокрутку к блоку с соответствующим id,
 //  затем убираем все добавленные ранее классы
@@ -43,6 +42,13 @@ menuLink.forEach(function(item) {
         menuBg.classList.remove('show'); 
     }) 
 });
+
+window.onload = function() { //загружается после загрузки всей страницы
+    document.getElementById('top').onclick = function() {
+        console.log(window.pageYOffset); //дает нам данные о нашем положении на странице
+        window.scrollTo(0,0); //координаты того места куда мы хотим попасть
+    }
+}
 
 
 
