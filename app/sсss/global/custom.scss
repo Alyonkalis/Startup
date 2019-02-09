@@ -43,10 +43,6 @@ $whiteColor: rgba(255, 255, 255, 255);
   font-style: normal;
 }
 
-html {
-	scroll-behavior: smooth;
-}
-
 body {
 	font-family: 'Montserrat-Regular', Arial, sans-serif;
 	font-size: 16px;
@@ -1098,6 +1094,7 @@ img {
 	color: $whiteColor;
 
 	outline: none;
+	cursor: pointer
 }
 
 // -----Extra-Large-----
