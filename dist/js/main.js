@@ -3090,11 +3090,7 @@ $(".mobile-menu").on("click","a", function (event) {
 
 
 //button top
-$(function() {
-    $('#top').click(function(){
-       $('html, body').animate({scrollTop:0}, 'slow');
-   });
-});
+
 
 window.onload = function() { //загружается после загрузки всей страницы
     document.getElementById('top').onclick = function() {
@@ -3103,7 +3099,13 @@ window.onload = function() { //загружается после загрузк�
     }
 };
 
-var btnTop = document.querySelector('#top');
+$(function() {
+    $('#top').click(function(){
+       $('html, body').animate({scrollTop:0}, 'slow');  //медленная прокрутка страницы наверх
+   });
+});
+
+var btnTop = document.querySelector('#top');  //прячем кнопку top с первого экрана
 
   window.onscroll = magic;
 
