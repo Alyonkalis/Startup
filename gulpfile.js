@@ -60,16 +60,24 @@ gulp.task('fonts', function() {
 gulp.task('browser-sync', function(){
     browserSync({
         server: {
-            baseDir: 'dist'
+            baseDir: 'dist',
+            index: 'index.html'
         },
+        port: 8080,
+        open: true,
         notify: false
     });
 });
 
-gulp.task('watch', function() {
-    gulp.watch('app/sсss/**/*', gulp.series('sass'));
-    gulp.watch('app/*.html').on('change', browserSync.reload);
-    gulp.watch('app/js/**/*.js', browserSync.reload); //не проверено работает или нет
+gulp.task('reload', function(){ 
+    browserSync.reload() 
+});
+
+gulp.task('watch', function() { 
+    gulp.watch('app/sсss/**/*', gulp.series('sass'))
+    gulp.watch('app/*.html', browserSync.reload)
+    gulp.watch('app/js/**/*.js', gulp.series('js')) 
+    gulp.watch('app/js/**/*.js').on('change', browserSync.reload); 
 });
 
 gulp.task('default', gulp.parallel('image', 'fonts' , 'html', 'sass', 'browser-sync', 'watch', 'js')) 

@@ -4,15 +4,15 @@ var buttonMenu = document.querySelector('.menu-button'),        //находим
     closeMenu = document.querySelector('.mobile-menu__close'),
     menuBg = document.querySelector('.menu-bg');                   //добавляем переменную для body
 
-buttonMenu.addEventListener("click", function(){                //слушаем клик по кнопке
-    if(menu.classList.contains('open')){                        //пишем условие(если у меню уже есть класс open)
+buttonMenu.addEventListener("click", function(){        //слушаем клик по кнопке
+    if(menu.classList.contains('open')){              //пишем условие(если у меню уже есть класс open)
         menuBg.classList.remove('show'),
-        menu.classList.remove('open'),                          //удаляем класс open
-        body.classList.remove('overflow');                      //удаляем класс overflow у body
-    } else {                                                     //если нет класса open
-        menu.classList.add('open'),                                 //добавляем класс open 
+        menu.classList.remove('open'),               //удаляем класс open
+        body.classList.remove('overflow');          //удаляем класс overflow у body
+    } else {                                        //если нет класса open
+        menu.classList.add('open'),                 //добавляем класс open 
         body.classList.add('overflow'),
-        menuBg.classList.add('show');                         //добавляем класс overflow для body
+        menuBg.classList.add('show');              //добавляем класс overflow для body
     }
 });
 
@@ -27,6 +27,7 @@ closeMenu.addEventListener("click", function(){                //слушаем 
         menuBg.classList.add('show');                         //добавляем класс overflow для body
     }
 });
+
 
 // Мы находим все спаны, при клике на один из них берем его атрибут
 // делаем прокрутку к блоку с соответствующим id,
@@ -43,6 +44,42 @@ menuLink.forEach(function(item) {
     }) 
 });
 
+//плавная прокрутка по якорям
+
+$(document).ready(function(){ 
+    //слушаем клик по тегу а в блоке .header__site-navigation 
+    $(".header__site-navigation").on("click","a", function (event) { 
+    //забираем идентификатор блока из атрибута href 
+    var id = $(this).attr('href'), 
+    //узнаем высоту от начала страницы до блока на который ссылается якорь 
+    top = $(id).offset().top; 
+    //анимируем переход на расстояние - top за 1500 мс 
+    $('body,html').animate({scrollTop: top}, 1500); 
+});
+
+//слушаем клик по тегу а в блоке .mobile-menu 
+$(".mobile-menu").on("click","a", function (event) { 
+    //забираем идентификатор блока из атрибута href 
+    var id = $(this).attr('href'); 
+    // закрываем меню 
+    $(".mobile-menu").removeClass('open'); 
+    $("body").removeClass('overflow'); 
+    $(".menu-bg").removeClass('show'); 
+    //узнаем высоту от начала страницы до блока на который ссылается якорь 
+    var top = $(id).offset().top; 
+    //анимируем переход на расстояние - top за 1500 мс 
+    $('body,html').animate({scrollTop: top}, 1500); 
+    }) 
+});
+
+
+//button top
+$(function() {
+    $('#top').click(function(){
+       $('html, body').animate({scrollTop:0}, 'slow');
+   });
+});
+
 window.onload = function() { //загружается после загрузки всей страницы
     document.getElementById('top').onclick = function() {
         console.log(window.pageYOffset); //дает нам данные о нашем положении на странице
@@ -50,34 +87,16 @@ window.onload = function() { //загружается после загрузк�
     }
 };
 
-function smoothScroll(target, duration) {
-    var target = document.querySelector(target);
-    var targetPosition = target.getBoundingClientRect().top;
-    var startPosition = window.pageYOffset;
-    var distance = targetPosition - startPosition;
-    var startTime = null;
+var btnTop = document.querySelector('#top');
 
-    function animation(currentTime) {
-        if(startTime === null) startTime = currentTime;
-        var timeElapsed = currentTime - startTime;
-        var run = ease(timeElapsed, startPosition,distance, duration);
-        window.scrollTo(0,run);
-        if(timeElapsed < duration) requestAnimationFrame(animation);
-    }
+  window.onscroll = magic;
 
-    function ease(t, b, c, d) {
-        t /= d / 2;
-        if (t < 1) return с / 2 * t * t + b;
-        t--;
-        return -c / 2 * (t * (t - 2) - 1) + b;
-    }
+  function magic() {
+      if (window.pageYOffset > 20) {
+      btnTop.style.opacity = '1';
+    } else { btnTop.style.opacity = '0'; }
+}   
+btnTop.onclick = function () {
+    window.scrollTo(0,0);
+}; 
 
-    requestAnimationFrame(animation);
-
-};
-
-var about = document.querySelector('.about');
-
-about.addEventListener(click, function() {
-    smoothScroll('.about,1000');
-});

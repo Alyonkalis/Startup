@@ -43,10 +43,18 @@ $whiteColor: rgba(255, 255, 255, 255);
   font-style: normal;
 }
 
+html{
+	height: 100%;
+}
+
 body {
 	font-family: 'Montserrat-Regular', Arial, sans-serif;
 	font-size: 16px;
 	color: $textColor;
+
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 
 	min-width: 320px;
 
@@ -58,6 +66,10 @@ body {
 	}
 
 	@include reset();
+}
+
+main {
+	flex: 1 0 auto;
 }
 
 a {
@@ -191,6 +203,10 @@ img {
 	transition: all .5s ease;
 	top: 0;
 	left: 0;
+
+	&__item a {
+		color: $whiteColor;
+	}
 
 	&__close {
 		position: absolute;
@@ -1043,6 +1059,8 @@ img {
 	background-color: $mainColor;
 	padding: 65px 0;
 	margin-top: -4px;
+
+	flex: 0 0 auto;
 	
 	&__copyright {
 		font-size: 12px;
@@ -1090,11 +1108,14 @@ img {
 	border-radius: 50%;
 	border: none;
 
+	opacity: 0;
+
 	background: rgba($mainColor, 1);
 	color: $whiteColor;
 
 	outline: none;
-	cursor: pointer
+	cursor: pointer;
+	z-index: 10;
 }
 
 // -----Extra-Large-----
