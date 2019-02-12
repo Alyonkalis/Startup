@@ -28,24 +28,7 @@ closeMenu.addEventListener("click", function(){                //слушаем 
     }
 });
 
-
-// Мы находим все спаны, при клике на один из них берем его атрибут
-// делаем прокрутку к блоку с соответствующим id,
-//  затем убираем все добавленные ранее классы
-var menuLink = document.querySelectorAll('.mobile-menu__item span'); 
-
-menuLink.forEach(function(item) { 
-    item.addEventListener("click", function(){ 
-        var name = item.getAttribute('name'); 
-        document.getElementById(name).scrollIntoView(); 
-        menu.classList.remove('open'); 
-        body.classList.remove('overflow'); 
-        menuBg.classList.remove('show'); 
-    }) 
-});
-
 //плавная прокрутка по якорям
-
 $(document).ready(function(){ 
     //слушаем клик по тегу а в блоке .header__site-navigation 
     $(".header__site-navigation").on("click","a", function (event) { 
@@ -77,16 +60,16 @@ $(".mobile-menu").on("click","a", function (event) {
 
 $(function() {
     $('#top').click(function(){
-       $('html, body').animate({scrollTop:0}, 'slow');  //медленная прокрутка страницы наверх
+        $('html, body').animate({scrollTop:0}, 'slow');  //медленная прокрутка страницы наверх
    });
 });
 
 var btnTop = document.querySelector('#top');  //прячем кнопку top с первого экрана
-
-  window.onscroll = magic;
-
-  function magic() {
-      if (window.pageYOffset > 20) {
-      btnTop.style.opacity = '1';
-    } else { btnTop.style.opacity = '0'; }
+window.onscroll = magic;
+function magic() {
+    if (window.pageYOffset > 20) {
+        btnTop.style.opacity = '1';
+    } else {
+        btnTop.style.opacity = '0';
+    }
 }   

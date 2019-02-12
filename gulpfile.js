@@ -75,7 +75,7 @@ gulp.task('reload', function(){
 
 gulp.task('watch', function() { 
     gulp.watch('app/sсss/**/*', gulp.series('sass'))
-    gulp.watch('app/*.html', browserSync.reload)
+    gulp.watch('app/*.html', gulp.series('html'))
     gulp.watch('app/js/**/*.js', gulp.series('js')) 
     gulp.watch('app/js/**/*.js').on('change', browserSync.reload); 
 });
