@@ -75,14 +75,6 @@ $(".mobile-menu").on("click","a", function (event) {
 
 //button top
 
-
-window.onload = function() { //загружается после загрузки всей страницы
-    document.getElementById('top').onclick = function() {
-        console.log(window.pageYOffset); //дает нам данные о нашем положении на странице
-        window.scrollTo(0,0); //координаты того места куда мы хотим попасть
-    }
-};
-
 $(function() {
     $('#top').click(function(){
        $('html, body').animate({scrollTop:0}, 'slow');  //медленная прокрутка страницы наверх
@@ -98,7 +90,3 @@ var btnTop = document.querySelector('#top');  //прячем кнопку top с
       btnTop.style.opacity = '1';
     } else { btnTop.style.opacity = '0'; }
 }   
-btnTop.onclick = function () {
-    window.scrollTo(0,0);
-}; 
-
